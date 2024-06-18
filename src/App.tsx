@@ -51,9 +51,8 @@ function App() {
     const [font, setFont] = useState(Font.Arial);
     const [themeKey, setThemeKey] = useState<ThemeKey>("Terminal");
 
-    const [isExporting, setIsExporting] = useState(false);
     const [exportOptions, setExportOptions] = useState({
-      name: "text_in_code.png",
+        name: "text_in_code.png",
         width: DEFAULT_WIDTH.toString(),
         height: DEFAULT_HEIGHT.toString(),
     });
@@ -88,15 +87,11 @@ function App() {
         setThemeKey(e.target.value as ThemeKey);
     };
 
-    const handleExport = () => {
-        setIsExporting(!isExporting);
-    };
-
     const handleDownload = () => {
-      const downloadDimensions = {
-        width: Number(exportOptions.width) || DEFAULT_WIDTH,
-        height: Number(exportOptions.height) || DEFAULT_HEIGHT,
-      };
+        const downloadDimensions = {
+            width: Number(exportOptions.width) || DEFAULT_WIDTH,
+            height: Number(exportOptions.height) || DEFAULT_HEIGHT,
+        };
         renderCanvas(
             canvasRef.current,
             codeFontSize,
@@ -105,7 +100,7 @@ function App() {
             downloadDimensions.width,
             downloadDimensions.height,
             theme
-        )
+        );
         const canvas = canvasRef.current;
         if (!canvas) {
             return;
@@ -128,18 +123,23 @@ function App() {
 
     return (
         <div className="flex flex-col md:flex-row-reverse">
-            <div className="flex flex-col gap-2 mx-2 items-center flex-wrap w-min" id="sidebar">
-                <div className="">
-                    <h1 className="text-2xl font-extrabold">text_in_code</h1>
-                    <p>Write your name in code</p>
-                </div>
-                <div className="flex gap-2 items-center flex-wrap my-2">
+            <div
+                className="flex flex-row md:flex-col gap-2 px-2 items-center justify-center md:justify-start flex-wrap md:w-72 w-full"
+                id="sidebar"
+            >
+                <div className="flex gap-2 items-center flex-wrap">
+                    <div className="">
+                        <h1 className="text-2xl font-extrabold">
+                            text_in_code
+                        </h1>
+                        <p>Write your name in code</p>
+                    </div>
                     <InputLabel label="text">
                         <input
                             onChange={handleChangeText}
                             value={text}
                             type="text"
-                            className="rounded-md border-black border-2 text-black"
+                            className="rounded-md border-black border-2 text-black w-full"
                         />
                     </InputLabel>
                     <InputLabel label="theme">
@@ -173,67 +173,58 @@ function App() {
                             onChange={handleChangeFontSize}
                             value={codeFontSize}
                             type="number"
-                            className="rounded-md border-black border-2 text-black"
+                            className="rounded-md border-black border-2 text-black w-full"
                         />
                     </InputLabel>
+                </div>
 
-                    <div className="relative">
-                        <button
-                            onClick={handleExport}
-                            className="rounded-md border-black border-2 p-2"
-                        >
-                            Export
-                        </button>
-                        {isExporting && (
-                            <div className="bg-white border-2 border-black mt-2 p-2">
-                                <InputLabel label="file name">
-                                    <input
-                                        onChange={(e) =>
-                                            setExportOptions({
-                                                ...exportOptions,
-                                                name: e.target.value,
-                                            })
-                                        }
-                                        value={exportOptions.name}
-                                        type="text"
-                                        className="rounded-md border-black border-2 text-black"
-                                    />
-                                </InputLabel>
-                                <InputLabel label="width (px)">
-                                    <input
-                                        onChange={(e) =>
-                                            setExportOptions({
-                                                ...exportOptions,
-                                                width: e.target.value,
-                                            })
-                                        }
-                                        value={exportOptions.width}
-                                        type="text"
-                                        className="rounded-md border-black border-2 text-black"
-                                    />
-                                </InputLabel>
-                                <InputLabel label="height (px)">
-                                    <input
-                                        onChange={(e) =>
-                                            setExportOptions({
-                                                ...exportOptions,
-                                                height: e.target.value,
-                                            })
-                                        }
-                                        value={exportOptions.height}
-                                        type="text"
-                                        className="rounded-md border-black border-2 text-black"
-                                    />
-                                </InputLabel>
-                                <button
-                                    onClick={handleDownload}
-                                    className="rounded-md border-black border-2 p-2 mt-2"
-                                >
-                                    Download
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                <div className="bg-white border-2 border-black my-2 p-2 w-full">
+                    <p className="text-xl">Export</p>
+                    <InputLabel label="file name">
+                        <input
+                            onChange={(e) =>
+                                setExportOptions({
+                                    ...exportOptions,
+                                    name: e.target.value,
+                                })
+                            }
+                            value={exportOptions.name}
+                            type="text"
+                            className="rounded-md border-black border-2 text-black w-full"
+                        />
+                    </InputLabel>
+                    <InputLabel label="width (px)">
+                        <input
+                            onChange={(e) =>
+                                setExportOptions({
+                                    ...exportOptions,
+                                    width: e.target.value,
+                                })
+                            }
+                            value={exportOptions.width}
+                            type="text"
+                            className="rounded-md border-black border-2 text-black w-full"
+                        />
+                    </InputLabel>
+                    <InputLabel label="height (px)">
+                        <input
+                            onChange={(e) =>
+                                setExportOptions({
+                                    ...exportOptions,
+                                    height: e.target.value,
+                                })
+                            }
+                            value={exportOptions.height}
+                            type="text"
+                            className="rounded-md border-black border-2 text-black w-full"
+                        />
+                    </InputLabel>
+                    <button
+                        onClick={handleDownload}
+                        className="rounded-md border-black border-2 p-2 mt-2"
+                    >
+                        Download
+                    </button>
                 </div>
             </div>
             <canvas
