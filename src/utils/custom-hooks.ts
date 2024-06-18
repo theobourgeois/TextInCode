@@ -14,8 +14,10 @@ export function useWindowDimensions() {
   useEffect(() => {
     const handleSetDimensions = () => {
       const sidebar = document.getElementById("sidebar");
+      const isMobile = window.innerWidth < 768;
+
       setDimensions({
-        width: window.innerWidth - (sidebar?.clientWidth ?? 0),
+        width: window.innerWidth - (!isMobile ?  sidebar?.clientWidth ?? 0 : 0),
         height: window.innerHeight,
       });
     };

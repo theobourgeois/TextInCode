@@ -127,7 +127,7 @@ function App() {
     };
 
     return (
-        <div className="flex flex-row-reverse">
+        <div className="flex flex-col md:flex-row-reverse">
             <div className="flex flex-col gap-2 mx-2 items-center flex-wrap w-min" id="sidebar">
                 <div className="">
                     <h1 className="text-2xl font-extrabold">text_in_code</h1>
