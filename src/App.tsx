@@ -241,8 +241,6 @@ function App() {
                     backgroundColor: theme.Background,
                 }}
                 ref={canvasRef}
-                width={windowDimensions.width}
-                height={windowDimensions.height}
             />
         </div>
     );

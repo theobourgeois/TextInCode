@@ -60,6 +60,11 @@ export const renderCanvas = (
     height: number,
     theme: Theme
 ) => {
+    if (!canvas) {
+        return;
+    }
+    canvas.width = width;
+    canvas.height = height;
     const context = canvas?.getContext("2d");
     if (!context) {
         return;
