@@ -113,7 +113,6 @@ export const renderCanvas = (
 
         const currentChar = sampleCode[i % sampleCode.length];
         context.fillText(currentChar, x, y);
-
         if (!skippedTokenChars.includes(currentChar)) {
             if (currentCharInTokenIndex >= tokenValue.length - 1) {
                 currentCharInTokenIndex = 0;

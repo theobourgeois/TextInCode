@@ -76,7 +76,7 @@ export const themes = {
     Identifier: "#5fafd7",  // Light blue
     Null: "#ffaf00",        // Gold
     String: "#afdf87",      // Light green
-    ColoredText: "#af87ff", // Lavender
+    ColoredText: "#ff87ff", // Lavender
     Background: "#e0f7fa",  // Light cyan
   },
   // A minimalistic theme with grayscale colors
