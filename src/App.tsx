@@ -18,7 +18,7 @@ export enum Font {
     Monospace = "monospace",
     SansSerif = "sans-serif",
     Serif = "serif",
-    Monaco = "Monaco",
+    Monaco = "Monaco, Menlo, Consolas, 'Courier New', monospace",
     Arial = "Arial",
 }
 
@@ -46,7 +46,7 @@ function App() {
     const windowDimensions = useWindowDimensions();
 
     // settings
-    const [text, setText] = useState("Hello, World");
+    const [text, setText] = useState("Hello, World!");
     const [codeFontSize, setCodeFontSize] = useState(16);
     const [font, setFont] = useState(Font.Arial);
     const [themeKey, setThemeKey] = useState<ThemeKey>("Terminal");
