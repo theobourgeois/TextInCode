@@ -79,9 +79,9 @@ function App() {
         setCodeFontSize(Number(e.target.value) || 16);
     };
 
-    const handleChangeFont = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setFont(e.target.value as Font);
-    };
+    // const handleChangeFont = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    //     setFont(Font[e.target.value as keyof typeof Font]);
+    // };
 
     const handleChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setThemeKey(e.target.value as ThemeKey);
@@ -155,19 +155,19 @@ function App() {
                             ))}
                         </select>
                     </InputLabel>
-                    <InputLabel label="font">
+                    {/* <InputLabel label="font">
                         <select
                             className="rounded-md border-black border-2 w-full text-black"
                             value={font}
                             onChange={handleChangeFont}
                         >
-                            {Object.values(Font).map((font) => (
+                            {Object.keys(Font).map((font) => (
                                 <option key={font} value={font}>
                                     {font}
                                 </option>
                             ))}
                         </select>
-                    </InputLabel>
+                    </InputLabel> */}
                     <InputLabel label="code font size">
                         <input
                             onChange={handleChangeFontSize}
