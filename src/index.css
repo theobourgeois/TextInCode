@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: Monaco;
+  font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

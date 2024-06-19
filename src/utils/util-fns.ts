@@ -91,6 +91,10 @@ export const renderCanvas = (
 
     context.clearRect(0, 0, width, height);
 
+    // fill background
+    context.fillStyle = theme.Background;
+    context.fillRect(0, 0, width, height);
+
     let currentTokenIndex = 0;
     let currentCharInTokenIndex = 0;
 
