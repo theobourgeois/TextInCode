@@ -48,7 +48,7 @@ function App() {
     // settings
     const [text, setText] = useState("Hello, World!");
     const [codeFontSize, setCodeFontSize] = useState(16);
-    const [font, setFont] = useState(Font.Arial);
+    const [font] = useState(Font.Arial);
     const [themeKey, setThemeKey] = useState<ThemeKey>("Terminal");
 
     const [exportOptions, setExportOptions] = useState({
